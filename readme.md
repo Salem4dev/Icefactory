@@ -4,3 +4,9 @@
 # 3- ادارة المبيعات -> مبيعات . 
 # 4 - Categories
 # 5- products
+
+/var/www/html/laravel/icefactory/Screenshot/Screenshot from 2018-01-26 16-15-02.png
+/var/www/html/laravel/icefactory/Screenshot/Screenshot from 2018-01-26 16-15-05.png
+/var/www/html/laravel/icefactory/Screenshot/Screenshot from 2018-01-26 16-15-12.png
+/var/www/html/laravel/icefactory/Screenshot/Screenshot from 2018-01-26 16-15-25.png
+/var/www/html/laravel/icefactory/Screenshot/Screenshot from 2018-01-26 16-15-30.png
