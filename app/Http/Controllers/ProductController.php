@@ -84,9 +84,9 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+            'image' => 'mimes:jpeg,png,jpg,gif|max:1024',
             'name' => 'required',
-            'categ_id' => 'required',
+//            'categ_id' => 'required',
         ]);
         $product = Product::find($id);
         $product->name = $request->input('name');
@@ -100,7 +100,7 @@ class ProductController extends Controller
             $product->image = $fileName;
         }
         $product->save();
-        return redirect('products');
+        return redirect('products')->with('success','Your updated successfuly sent');
     }
 
     /**
