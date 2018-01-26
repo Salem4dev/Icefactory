@@ -1,0 +1,340 @@
+.user-info-margin{
+  margin-left: 0;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+.edit-row{
+  margin-right: 0;
+}
+.trans{
+
+}
+.trans:hover{
+	transform: 	scale(1.2);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2) ;
+	-o-transform: scale(1.2);
+	
+}
+.edit-info{
+  padding: 0;
+}
+.edit-info ul{
+  list-style-type: none;
+}
+.sidebar ul li {
+  border-bottom: none;
+}
+.user-info-margin ul li a.active {
+    /* background-color: #eee; */
+  background: none;
+}
+.user-info-margin ul li a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav>li>a:hover{
+  border-bottom: 1px solid #428bca;
+}
+.navbar-top-links li a{
+  padding: 14px;
+}
+.face-background-post {
+    background-image: -webkit-linear-gradient(bottom left, rgba(102,244,133,1.00) 0%, rgba(23,172,255,1.00) 100%);
+    background-image: -moz-linear-gradient(bottom left, rgba(102,244,133,1.00) 0%, rgba(23,172,255,1.00) 100%);
+    background-image: -o-linear-gradient(bottom left, rgba(102,244,133,1.00) 0%, rgba(23,172,255,1.00) 100%);
+    background-image: linear-gradient(top right, rgba(102,244,133,1.00) 0%, rgba(23,172,255,1.00) 100%);
+}
+
+@media(min-width:768px){
+  .sidebar{
+    position: fixed;
+  }
+}
+/* start login and regesterition area */
+
+.register , .login{
+  height: 100vh;
+ 	background-repeat: no-repeat;
+ 	background-color: #d3d3d3;
+ 	font-family: 'Oxygen', sans-serif;
+   direction: ltr;
+}
+
+.main{
+ 	margin-top: 70px;
+}
+
+h1.title { 
+	font-size: 50px;
+	font-family: 'Passion One', cursive; 
+	font-weight: 400; 
+}
+
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+/*label{
+	margin-bottom: 15px;
+}*/
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login{
+ 	background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.main-center{
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 330px;
+    padding: 40px 40px;
+
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}
+
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
+/* end login and regesterition area */
+/* start customer_info area */
+.btncolor a{
+	color: white;
+	text-decoration: none;
+}
+
+/* start hide query div section */
+
+.autohide {
+    -moz-animation: cssAnimation 0s ease-in 8s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 8s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 8s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 8s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    from {
+        width:100%;
+        height:100%;
+        overflow:hidden;
+				position: relative;
+    }
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+				padding: 0;
+				margin: 0;
+        visibility:hidden;
+				position: relative;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    from {
+        width:100%;
+        height:100%;
+        overflow:hidden;
+				position: relative;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+				padding: 0;
+				margin: 0;
+        visibility:hidden;
+				position: relative;
+    }
+}
+/* end hide query div section */
+
+/* start datepicker jquery ui */
+.ui-widget-header {
+    border: 1px solid #e78f08;
+    background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+}
+.ui-widget-content {
+    border: 1px solid #ddd;
+    background: #eee url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
+    color: #333;
+		}
+		.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #fed22f;
+    background: #ffe45c url(images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
+    color: #363636;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #ccc;
+    font-weight: bold;
+    color: #1c94c4;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+}
+.ui-widget-content a {
+    color: #333;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #fbd850;
+    background: #fff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #eb8f00;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-hover {
+    border: 1px solid #fbd850;
+    background: #fff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #eb8f50;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+	border: 1px solid #fbcb09;
+    background: #fdf5ce url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+	color: #c77405;
+}
+.ui-widget-header .ui-icon {
+    background-image: url(images/ui-icons_444444_256x240.png);
+}
+
+/* end datepicker jquery ui */
+
