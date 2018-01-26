@@ -85,8 +85,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'image' => 'mimes:jpeg,png,jpg,gif|max:1024',
-            'name' => 'required',
-//            'categ_id' => 'required',
+//            'name' => 'required',
+            'categ_id' => 'required',
         ]);
         $product = Product::find($id);
         $product->name = $request->input('name');

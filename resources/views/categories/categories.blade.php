@@ -66,7 +66,7 @@
                                 <input type="text" id="categ" class="form-control" name="categ">
                             </div>
                             <div class="form-group">
-                                <label> اسم العميل </label>
+                                <label> اسم فئة الاب </label>
                                 <select id="subcateg" class="form-control" name="subcateg">
                                     <option value=""> اختر الفئة الاب </option>
                                     @foreach($all_category as $category)
