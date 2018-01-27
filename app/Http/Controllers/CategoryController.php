@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
         $category = new Category();
         $category->name = $request->input('addcateg');
-        $category->subcateg_id = $request->input('addsubcateg');
+        $category->parent_id = $request->input('addsubcateg');
         try {
             $category->save();
             return response()->json([$category,'success' => 'Your Category is successfully sent.']);
@@ -51,7 +51,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->name = $request->input('categ');
-        $category->subcateg_id = $request->input('subcateg');
+        $category->parent_id = $request->input('subcateg');
         $category->save();
         return response()->json(['success' => 'Your customer is successfully updated.']);
     }

@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
-  `subcateg_id` int(10) UNSIGNED DEFAULT NULL,
+  `parent_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,7 +38,7 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `subcateg_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `categories` (`id`, `name`, `parent_id`, `created_at`, `updated_at`) VALUES
 (27, 'frezer', 30, '2018-01-24 13:30:43', '2018-01-26 10:22:23'),
 (28, 'Citching', NULL, '2018-01-24 13:36:14', '2018-01-26 10:22:32'),
 (29, 'Laptop', 30, '2018-01-24 13:36:28', '2018-01-26 10:22:36'),
@@ -241,7 +241,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `categories_subcateg_id_index` (`subcateg_id`);
+  ADD KEY `categories_parent_id_index` (`parent_id`);
 
 --
 -- Indexes for table `customers`
@@ -359,7 +359,7 @@ ALTER TABLE `users`
 -- Constraints for table `categories`
 --
 ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_subcateg_id_foreign` FOREIGN KEY (`subcateg_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `employee_attendances`

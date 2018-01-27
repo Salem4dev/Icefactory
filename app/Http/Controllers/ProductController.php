@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $all_product = Product::with('Category')->get();
+        $all_product = Product::with('category')->get();
         $all_category = Category::all();
         return view('products/products')->with('all_product', $all_product)->with('all_category', $all_category);
     }
@@ -85,8 +85,6 @@ class ProductController extends Controller
     {
         $request->validate([
             'image' => 'mimes:jpeg,png,jpg,gif|max:1024',
-//            'name' => 'required',
-            'categ_id' => 'required',
         ]);
         $product = Product::find($id);
         $product->name = $request->input('name');

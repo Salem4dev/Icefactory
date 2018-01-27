@@ -125,12 +125,12 @@
             <tr id="{{ $category->id }}">
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
-                @if(is_null($category->subcateg_id))
+                @if(is_null($category->parent_id))
                <?php echo ' <td></td> '; ?>
                 @else
                     <td>{{ $category->category->name }}</td>
                 @endif
-                <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-name="{{ $category->name }}" data-subcateg="{{ $category->subcateg_id }}" data-id="{{ $category->id }}"></td>
+                <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-name="{{ $category->name }}" data-subcateg="{{ $category->parent_id }}" data-id="{{ $category->id }}"></td>
                     <td><input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="{{ $category->id }}"> </td>
             </tr>
             @endforeach

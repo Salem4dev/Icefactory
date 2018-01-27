@@ -431,7 +431,7 @@ $(document).on('submit','#addcategoryform', function(e){
     e.preventDefault();
     var     id          = $("#addid").val();
     var     categ        = $('#addcateg').val();
-    var     subcateg_id        = $('#addsubcateg').val();
+    var     parent_id        = $('#addsubcateg').val();
     $.ajax({
         type:'POST',
         url: "categories",
@@ -440,7 +440,7 @@ $(document).on('submit','#addcategoryform', function(e){
             "_token": $("input[name=_token]").val(),
             id : id,
             addcateg: categ,
-            addsubcateg: subcateg_id
+            addsubcateg: parent_id
         },
         success: function(data){
             setTimeout(function(){// wait for 5 secs(2)
@@ -449,8 +449,8 @@ $(document).on('submit','#addcategoryform', function(e){
             var td = '<tr '+id+'>'+
                 '<td>'+id+'</td>'+
                 '<td>'+categ +'</td>'+
-                '<td>'+subcateg_id +'</td>'+
-                '<td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal" data-name="'+categ+'" data-subcateg="'+subcateg_id+'" data-id="'+id +'"></td>'+
+                '<td>'+parent_id +'</td>'+
+                '<td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal" data-name="'+categ+'" data-subcateg="'+parent_id+'" data-id="'+id +'"></td>'+
                 '<td><input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="'+id+'"></td>'+
                 '</tr>';
             $("#table").prepend(td);
@@ -473,7 +473,7 @@ $(document).on('submit','#addcategoryform', function(e){
 $(document).on('click', '.edit_modal', function() {
     $("#id").val($(this).data('id'));
     $("#categ").val($(this).data('name'));
-    $("#subcateg").val($(this).data('subcateg_id'));
+    $("#subcateg").val($(this).data('subcateg'));
     $('#editmodel').modal('show');
 });
 // $('.modal-footer').on('click', '#updateSales', function () {
@@ -615,7 +615,7 @@ $(document).on('click', '.edit_modal', function() {
     $("#id").val($(this).data('id'));
     $("#name").val($(this).data('name'));
     $("#images").attr("src","images/"+$(this).data('image'));
-    $("#categ_id").val($(this).data('categ_id'));
+    $('#categ_id').val($(this).data('categid'));
     $("#updateproductform").attr('action', "products/update/"+$("#id").val());
     $('#editmodel').modal('show');
 });

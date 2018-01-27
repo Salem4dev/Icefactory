@@ -39,7 +39,7 @@
                                     <input  type="file" class="form-control" id="addimage"  name="addimage">
                                 </div>
                                 <div class="form-group forhide" style="display: none">
-                                    <img id="addimages" class="img-responsive" style="width: 100%;height: 200px;" src="" />
+                                    <img id="addimages" class="img-responsive" style="width: 100%;height: 350px;" src="" />
                                 </div>
                                 <div class="modal-footer">
                                     <input type="submit" class="btn btn-primary" value="أحفظ المنتج" id="addprod" name="addprod" >
@@ -72,10 +72,9 @@
                             <div class="form-group">
                                 <label> فئة المنتج </label>
                                 <select id="categ_id" class="form-control" name="categ_id">
-                                    <option value=""> اختر الفئة </option>
-                                    @foreach($all_category as $category)
-                                        <option selected="selected" value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
+                                        @foreach($all_category as $category)
+                                            <option selected="selected" value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
                                 </select>
                                 <input type="hidden" id="id" class="form-control" name="id">
                             </div>
@@ -86,7 +85,7 @@
                                 <input  type="file" onchange="document.getElementById('images').src = window.URL.createObjectURL(this.files[0])" class="form-control" id="image"  name="image">
                             </div>
                                 <div class="form-group">
-                                        <img id="images" class="img-responsive" style="width: 100%;height: 200px;" src="" />
+                                        <img id="images" class="img-responsive" style="width: 100%;height: 350px;" src="" />
                                 </div>
                             <div class="modal-footer">
                                 <input type="submit" id="updateproduct" class="btn btn-success" value="حدث البيانات" >

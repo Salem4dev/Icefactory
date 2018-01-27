@@ -16,8 +16,8 @@ class CategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',100)->nullable(false);
-            $table->integer('subcateg_id')->nullable()->unsigned()->index();
-            $table->foreign('subcateg_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->integer('parent_id')->nullable()->unsigned()->index();
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
