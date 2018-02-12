@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomersTable extends Migration
+class CreateExtypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('extypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100)->nullable(false);
-            $table->float('price')->nullable(false);
-            $table->string('phone',11)->nullable(false);
-            $table->string('address')->nullable();
-            $table->string('notes')->nullable();
+            $table->string('name')->nullable(false);
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
@@ -35,6 +31,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('extypes');
     }
 }

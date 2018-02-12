@@ -110,7 +110,7 @@
 @include('includes.messages')
     <div class="table-responsive">
         <!-- Table -->
-        <table id="table" class="table table-hover table-bordered table-striped table-responsive">
+        <table id="table" class="table table-hover table-bordered table-striped table-responsive table-condensed">
         <thead>
             <tr>
                 <th>ID</th>
@@ -122,7 +122,7 @@
         </thead>
         <tbody>
             @foreach($all_category as $category)
-            <tr id="{{ $category->id }}">
+            <tr id="categ{{ $category->id }}">
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
                 @if(is_null($category->parent_id))
@@ -131,7 +131,7 @@
                     <td>{{ $category->category->name }}</td>
                 @endif
                 <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-name="{{ $category->name }}" data-subcateg="{{ $category->parent_id }}" data-id="{{ $category->id }}"></td>
-                    <td><input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="{{ $category->id }}"> </td>
+                    <td><input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="{{ $category->id }}"></td>
             </tr>
             @endforeach
             @if(count($all_category) <= 0)

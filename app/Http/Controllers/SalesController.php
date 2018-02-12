@@ -26,17 +26,16 @@ class SalesController extends Controller
     /* ------------------------------------------------------------- */
     public function add(Request $request){
 
-        $Sales = new Sale();
-        $Sales->from_check = $request->input('addfrom');
-        $Sales->to_check = $request->input('addto');
-//        $Sales->number_checks = $request->input('addnumber');
-        $Sales->halek = $request->input('addhalek');
-        $Sales->Snowboard_price = $request->input('addprice');
-//        $Sales->total_price = $request->input('addtotal');
-        $Sales->customer_id = $request->input('addcustomerid');
+        $sales = new Sale();
+        $sales->from_check = $request->input('addfrom');
+        $sales->to_check = $request->input('addto');
+        $sales->number = $request->input('addnumber');
+        $sales->halek = $request->input('addhalek');
+        $sales->Snowboard_price = $request->input('addprice');
+        $sales->customer_id = $request->input('addcustomerid');
         try {
-            $Sales->save();
-            return response()->json([$Sales,'success' => 'Your Sales is successfully sent.']);
+            $sales->save();
+            return response()->json($sales);
         } catch(\Exception $e) {
             return redirect('/daily_sales')->with('error', 'حدث خطأ اثناء حفظ عميل جديد');
         }
@@ -51,13 +50,12 @@ class SalesController extends Controller
         $Sales = Sale::find($id);
         $Sales->from_check = $request->input('from');
         $Sales->to_check = $request->input('to');
-//        $Sales->number_checks = $request->input('number');
+        $Sales->number = $request->input('number');
         $Sales->halek = $request->input('halek');
         $Sales->Snowboard_price = $request->input('price');
-//        $Sales->total_price = $request->input('total');
         $Sales->customer_id = $request->input('customerid');
         $Sales->save();
-        return response()->json(['success' => 'Your Sales is successfully updated.']);
+        return response()->json($Sales);
 
     }
 
@@ -69,21 +67,5 @@ class SalesController extends Controller
         Sale::destroy($id);
         return response()->json(['success' => 'Your inquire is successfully sent']);
     }
-
-    /* ------------------------------------------------------------- */
-    # monthly_sales Page
-    /* ------------------------------------------------------------- */
-
-    public function monthly_sales(){
-        return view('sales/monthly_sales');
-    }
-
-    /* ------------------------------------------------------------- */
-    # yearly_sales Page
-    /* ------------------------------------------------------------- */
-    public function yearly_sales(){
-        return view('sales/yearly_sales');
-    }
-
 
 }

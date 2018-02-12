@@ -31,7 +31,7 @@ class CustomerController extends Controller
         $customer->address = $request->input('addaddress');
         try {
             $customer->save();
-            return response()->json([$customer,'success' => 'Your customer is successfully sent.']);
+            return response()->json($customer);
         } catch(\Exception $e) {
             return redirect('/customer_info')->with('error', 'حدث خطأ اثناء حفظ عميل جديد');
         }

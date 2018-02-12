@@ -114,9 +114,8 @@
         </div>
     </div>
 @include('includes.messages')
-    {{--<div class="table-responsive">--}}
         <!-- Table -->
-        <table id="table" class="table table-hover table-bordered table-striped table-responsive">
+        <table id="table" class="table table-hover table-bordered table-striped table-responsive table-condensed">
         <thead>
             <tr>
                 <th>ID</th>
@@ -129,7 +128,7 @@
         </thead>
         <tbody>
             @foreach($all_employee as $employee)
-            <tr id="{{ $employee->id }}">
+            <tr id="ex{{ $employee->id }}">
                 <td>{{ $employee->id }}</td>
                 <td>{{ $employee->name }}</td>
                 <td>{{ $employee->age }}</td>
@@ -146,7 +145,6 @@
             @endif
             </tbody>
          </table>
-      {{--</div>--}}
 </div>
 <!-- /#page-wrapper -->
 <script type="text/javascript">

@@ -34,7 +34,7 @@ class CategoryController extends Controller
         $category->parent_id = $request->input('addsubcateg');
         try {
             $category->save();
-            return response()->json([$category,'success' => 'Your Category is successfully sent.']);
+            return response()->json($category);
         } catch(\Exception $e) {
             return redirect('/categories')->with('error', 'Sorry but have an error while create your Category plz try agian',$e);
         }

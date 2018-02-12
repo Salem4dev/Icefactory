@@ -16,8 +16,8 @@ class EmployeeController extends Controller
     /* ------------------------------------------------------------- */
     public function index(){
         $all_employee = Employee::all();
+//        return response()->json($all_employee);
         return view('employee/employee_info')->with('all_employee', $all_employee);
-
     }
     /* ------------------------------------------------------------- */
     # add View page for Employee_info
@@ -32,7 +32,7 @@ class EmployeeController extends Controller
         $employee->address = $request->input('addaddress');
         try {
             $employee->save();
-            return response()->json([$employee,'success' => 'Your Employee is successfully sent.']);
+            return response()->json($employee);
         } catch(\Exception $e) {
             return redirect('/Employee_info')->with('error', 'حدث خطأ اثناء حفظ عميل جديد');
         }

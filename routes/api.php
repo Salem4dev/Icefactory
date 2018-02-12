@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
+
 // Route::post('edit/', 'CustomerController@edit')->name('edit');
 //Route::post('customer_info/edit/{id}', "CustomerController@edit");

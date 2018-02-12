@@ -17,7 +17,7 @@ class CategoriesTable extends Migration
             $table->increments('id');
             $table->string('name',100)->nullable(false);
             $table->integer('parent_id')->nullable()->unsigned()->index();
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('parent_id')->references('id')->on('categories');
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';

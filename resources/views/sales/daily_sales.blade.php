@@ -9,7 +9,7 @@
     <div class="row edit-row">
       <div class="col-xm-12">
 
-        <h1>صفحة الموظفين <span><button type="button" class="btn btn-info add_modal" data-toggle="modal" data-target="#addmodal">اضف عملية بيع جديدة</button> </span><span class="navbar-left">
+        <h1>صفحة المبيعات <span><button type="button" class="btn btn-info add_modal" data-toggle="modal" data-target="#addmodal">اضف عملية بيع جديدة</button> </span><span class="navbar-left">
             <!-- Trigger the modal with a button -->
             <!-- Modal -->
             <div class="modal fade" id="addmodal" role="dialog">
@@ -20,7 +20,7 @@
                             <h4 class="modal-title">اضف عملية بيع</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="addSalesform"  method="POST">
+                            <form id="addSalesform" method="POST">
                               {{ csrf_field() }}
                                 <div class="form-group">
                                 <input type="text" id="addfrom" class="form-control" placeholder="من رقم" name="addfrom">
@@ -28,9 +28,9 @@
                               <div class="form-group">
                                 <input type="text" id="addto" class="form-control" placeholder="الى رقم" name="addto">
                               </div>
-                              {{--<div class="form-group">
+                              <div class="form-group">
                                 <input type="text" id="addnumber" class="form-control" placeholder="عدد الشكات" name="addnumber">
-                              </div>--}}
+                              </div>
                                 <div class="form-group">
                                 <input type="text" id="addhalek" class="form-control" placeholder="هالك الواح" name="addhalek">
                               </div>
@@ -66,7 +66,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">تحديث بيانات الموظف</h4>
+            <h4 class="modal-title">تحديث بيانات البيع</h4>
           </div>
           <div class="modal-body">
             <form id="updateSalesform" method="POST" >
@@ -79,10 +79,10 @@
                 <label> الى رقم </label>
                 <input type="text" id="to" class="form-control" name="to">
               </div>
-              {{--<div class="form-group">
+              <div class="form-group">
                 <label> عدد الشكات </label>
                 <input type="text" id="number" class="form-control" name="number">
-              </div>--}}
+              </div>
                 <div class="form-group">
                 <label> هالك الواح </label>
                 <input type="text" id="halek" class="form-control" name="halek">
@@ -134,9 +134,8 @@
       </div>
     </div>
     @include('includes.messages')
-    <div class="table-responsive">
       <!-- Table -->
-      <table id="table" class="table table-hover table-bordered table-striped">
+      <table id="table" class="table table-hover table-responsive table-bordered table-striped table-condensed">
         <thead>
         <tr>
           <th>ID</th>
@@ -144,38 +143,39 @@
           <th>اليوم</th>
           <th>من</th>
           <th>الى</th>
+          <th>عدد الشكات</th>
           <th>هالك اللوح</th>
           <th>سعر اللوح</th>
-          <th>عدد الشكات</th>
           <th>صافى الالواح</th>
           <th>اجمالى السعر</th>
           <th>اسم العميل</th>
           <th>تاريخ اخر تعديل</th>
           <th>تعديل على البيع</th>
-
         </tr>
         </thead>
         <tbody>
         @foreach($all_Sales as $sales)
-          <tr id="{{ $sales->id }}">
+          <tr id="ex{{ $sales->id }}">
             <td>{{ $sales->id }}</td>
-            <td>{{ $sales->created_at->format('Y/m/d H:i:s') }}</td>
+            <td>{{ $sales->created_at->format('Y/m/d') }}</td>
               {{--<td>{{ $sales->created_at->format('l') }}</td>--}}
-              {{--<td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $sales->created_at)->day }}</td>--}}
               <td>{{ \Carbon\Carbon::parse($sales->created_at)->format('l')}}</td>
-            <td>{{ $sales->from_check }}</td>
-            <td>{{ $sales->to_check }}</td>
+              <?php  $sum = $sales->from_check ;
+               $calc = $sales->from_check + $sales->number ;
+              ?>
+              <td>{{ $calc }}</td>
+            <td>{{$calc += $sales->from_check + $sales->number -1 }}</td>
+            <td>{{ $sales->number }}</td>
             <td>{{ $sales->halek }}</td>
             <td>{{ $sales->snowboard_price }} ج.م</td>
-            <td>{{ $total = $sales->from_check + $sales->to_check -1 }}</td>
-            <td>{{ $safyloh = $total * 30 - $sales->halek }}</td>
+            {{--<td>{{ $total = $sales->from_check + $sales->to_check -1 }}</td>--}}
+            <td>{{ $safyloh = $sales->number  * 30 - $sales->halek }}</td>
             <td>{{ $safyloh * $sales->snowboard_price }} ج.م</td>
             <td>{{ $sales->customer->name }}</td>
             {{--<td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $sales->updated_at) }}</td>--}}
-            <td>{{ $sales->updated_at->format('Y/m/d H:i:s') }}</td>
-            <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-from_check="{{ $sales->from_check }}" data-to_check="{{ $sales->to_check }}" data-halek="{{ $sales->halek }}" data-snowboard_price="{{ $sales->snowboard_price }}"  data-customer_id="{{ $sales->customer_id }}" data-id="{{ $sales->id }}">
+            <td>{{ $sales->updated_at->format('Y/m/d') }}</td>
+            <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-from_check="{{ $sales->from_check }}" data-to_check="{{ $sales->to_check }}" data-number="{{ $sales->number }}" data-halek="{{ $sales->halek }}" data-price="{{ $sales->snowboard_price }}"  data-customer_id="{{ $sales->customer_id }}" data-id="{{ $sales->id }}">
               <input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="{{ $sales->id }}"> </td>
-
           </tr>
         @endforeach
         @if(count($all_Sales) <= 0)
@@ -185,7 +185,6 @@
         @endif
         </tbody>
       </table>
-    </div>
   </div>
   <!-- /#page-wrapper -->
   <script>

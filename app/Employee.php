@@ -15,5 +15,8 @@ class Employee extends Model
 //        the ( age ) word the important here to desplay the age by year or day or hours
 
     }
+    public function expenses() {
+        return $this->hasMany('\App\Expense','empl_id', 'id');
+    }
 
 }

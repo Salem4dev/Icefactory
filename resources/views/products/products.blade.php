@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-                        <!-- /Modal -->
+                       <!-- /Modal -->
             </div>
         </div>
         <!-- /row -->
@@ -121,9 +121,8 @@
         </div>
     </div>
 @include('includes.messages')
-    <div class="table-responsive">
         <!-- Table -->
-        <table id="table" class="table table-hover table-bordered table-striped table-responsive">
+        <table id="table" class="table table-hover table-bordered table-striped table-responsive table-condensed">
         <thead>
             <tr>
                 <th>ID</th>
@@ -139,7 +138,7 @@
             <tr id="{{ $product->id }}">
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
-                <td><img class="img-responsive" style="height : 50px; width: 100px; " src="images/{{ $product->image }}" /></td>
+                <td><img class="img-responsive showimg" style="height : 50px; width: 100px; " src="images/{{ $product->image }}" /></td>
                 <td>{{ $product->category->name }}</td>
                 <td><input type="button" name="edit" value="تعديل" class="btn btn-primary edit_modal"  data-name="{{ $product->name }}" data-image="{{ $product->image }}" data-categid="{{ $product->category_id }}" data-id="{{ $product->id }}"></td>
                   <td>  <input type="button" name="delete" value="حذف"  class="btn btn-danger delete_modal" data-id="{{ $product->id }}"> </td>
@@ -152,19 +151,11 @@
             @endif
             </tbody>
          </table>
-      {{--</div>--}}
 </div>
 <!-- /#page-wrapper -->
 <script type="text/javascript">
     $(document).ready(function() {
         $('#table').dataTable();
-        $( "#birth_day,#addbirth_day" ).datepicker({
-
-            changeMonth: true,
-            changeYear: true,
-            dateFormat: "yy-mm-dd",
-            yearRange: "-100:+0"
-        });
     });
 </script>
 @endsection

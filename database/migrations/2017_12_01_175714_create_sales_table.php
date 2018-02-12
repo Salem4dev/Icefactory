@@ -17,10 +17,10 @@ class CreateSalesTable extends Migration
             $table->increments('id');
             $table->integer('from_check')->nullable(false)->unsigned();
             $table->integer('to_check')->nullable(false)->unsigned();
-//            $table->string('number_checks', 3)->nullable(false);
+            $table->integer('number')->nullable(false)->unsigned();
             $table->integer('halek')->nullable()->unsigned();
             $table->float('snowboard_price')->nullable(false);
-//            $table->float('total_price',2, 2)->nullable();
+            $table->string('notes')->nullable();
             $table->integer('customer_id')->unsigned()->index();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->engine = 'InnoDB';

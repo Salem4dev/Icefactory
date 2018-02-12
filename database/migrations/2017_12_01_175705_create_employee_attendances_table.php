@@ -19,6 +19,7 @@ class CreateEmployeeAttendancesTable extends Migration
             $table->dateTime('hodor')->nullable(false);
             $table->dateTime('insraf')->nullable(false);
             $table->string('shift')->nullable(false);
+            $table->string('notes')->nullable();
             $table->integer('employee_id')->unsigned()->index();
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->engine = 'InnoDB';

@@ -14,6 +14,7 @@
 Route::get('login',"HomeController@login");
 
 Route::get('register',"HomeController@register");
+
 Auth::routes();
 
 
@@ -24,8 +25,6 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/',"HomeController@index");
 
 Route::get('/reset',"HomeController@reset");
-
-Route::get('/factory_expenses',"HomeController@factory_expenses");
 
 Route::get('/maintenance_expenses',"HomeController@maintenance_expenses");
 
@@ -65,12 +64,8 @@ Route::get('daily_sales', "SalesController@index");
 Route::post('daily_sales/add', "SalesController@add");
 Route::post('daily_sales/update/{id}', "SalesController@update");
 Route::post('daily_sales/delete/{id}', "SalesController@delete");
-//Route::post('categories', "SalesController@delete");
 
-//Route::get('/monthly_sales', "SalesController@monthly_sales");
-//
-//Route::get('/yearly_sales', "SalesController@yearly_sales");
-
+/* categories routes group */
 Route::resource('categories', "CategoryController", [
     'except' => ['edit', 'create','show']
 ]);
@@ -78,6 +73,15 @@ Route::resource('products', "ProductController", [
     'except' => ['edit', 'create','show','update']
 ]);
 Route::post('products/update/{id}', "ProductController@update");
+
+/* expenses routes group */
+
+Route::get('expenses', "ExpensesController@index");
+//Route::post('expenses', "ExpensesController@index");
+Route::post('expenses/add', "ExpensesController@add");
+Route::post('expenses/update/{id}', "ExpensesController@update");
+Route::post('expenses/delete/{id}', "ExpensesController@delete");
+
 /* logout routes group */
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

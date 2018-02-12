@@ -359,9 +359,9 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i>المصروفات<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="factory_expenses">مصروفات مصنع</a>
+                                    <a href="expenses">مصروفات مصنع</a>
                                 </li>
-                                <li>
+                               {{-- <li>
                                     <a href="maintenance_expenses">مصروفات صيانة</a>
                                 </li>
                                 <li>
@@ -369,7 +369,7 @@
                                 </li>
                                 <li>
                                     <a href="incidental_expenses">مصروفات الكهرباء</a>
-                                </li>
+                                </li>--}}
                                <!-- <li>
                                     <a href="#">Third Level <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">

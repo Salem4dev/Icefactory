@@ -56,7 +56,8 @@ class ProductController extends Controller
         }
         try {
             $product->save();
-            return redirect('products')->with('success','Your product successfuly stored :) ');
+            return response()->json($product);
+//            return redirect('products')->with('success','Your product successfuly stored :) ');
         } catch(\Exception $e) {
             return redirect('/products')->with('error', 'Sorry but have an error while create your Product plz try agian');
         }
@@ -98,7 +99,8 @@ class ProductController extends Controller
             $product->image = $fileName;
         }
         $product->save();
-        return redirect('products')->with('success','Your updated successfuly sent');
+        return response()->json($product);
+//        return redirect('products')->with('success','Your updated successfuly sent');
     }
 
     /**
